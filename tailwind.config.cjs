@@ -11,7 +11,7 @@ const config = {
             colors: {
                 primary: '#406DF5',
                 secondary: '#001C8B',
-                muted: '#AAA9BC',
+                muted: '#FFFFFF',
                 light: '#0097C1',
                 alternative: '#A8001D',
                 dark: '#464555'

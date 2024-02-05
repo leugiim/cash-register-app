@@ -5,5 +5,5 @@
 
 html,
 body {
-	@apply bg-dark h-screen flex justify-center items-center;
+	@apply bg-muted h-screen;
 }
