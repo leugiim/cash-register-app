@@ -1,6 +1,16 @@
-<h1 class="text-2xl text-primary">Text 1</h1>
-<h2 class="text-2xl text-secondary">Text 2</h2>
-<h2 class="text-2xl text-muted">Text 3</h2>
-<h2 class="text-2xl text-light">Text 4</h2>
-<h2 class="text-2xl text-alternative">Text 5</h2>
-<h2 class="text-2xl text-dark">Text 6</h2>
+<script lang="ts">
+	import ProductCard from '$lib/components/ProductCard.svelte';
+	import { getInitialFetchResult } from '$lib/fetch';
+	import { useProducts } from '$lib/fetch/fetchProducts';
+	import type { Product } from '$lib/types/Product';
+
+	const { status, httpStatus, message, content: products } = getInitialFetchResult<Product[]>();
+
+	useProducts({ status, httpStatus, message, content: products });
+</script>
+
+<main class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 w-full gap-6 px-8">
+	{#each $products ?? [] as product}
+		<ProductCard {product} />
+	{/each}
+</main>
