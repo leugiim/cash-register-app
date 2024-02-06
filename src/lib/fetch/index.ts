@@ -83,7 +83,7 @@ export const useFetch = <T, B = null>(
 
 	fetchWithMethod<T, B>(url, method ?? FetchMethod.GET, headers ?? {}, body).then((response) => {
 		if (parse && response.content !== null) response.content = parse(response.content);
-		response = validateResponse(schema, response);
+		if (schema) response = validateResponse(schema, response);
 
 		result.status.set(response.status);
 		result.httpStatus.set(response.httpStatus);

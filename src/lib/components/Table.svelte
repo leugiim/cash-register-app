@@ -34,8 +34,8 @@
 						<td class="p-4">{col}</td>
 					{/each}
 					<td class="text-right">
-						<a class="btn bg-secondary" href="{baseUrl}/edit"> Edit</a>
-						<a class="btn bg-alternative" href="{baseUrl}/delete"> Delete</a>
+						<a class="btn bg-secondary" href="{baseUrl}/edit/{row[0]}"> Edit</a>
+						<a class="btn bg-alternative" href="{baseUrl}/delete/{row[0]}"> Delete</a>
 					</td>
 				</tr>
 			{/each}
