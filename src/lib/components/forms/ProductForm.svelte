@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import type { Product } from '$lib/types/Product';
 
-	export let product: Product;
+	export let product: Product = { id: null, name: null, price: null };
 	export let editing: boolean = false;
 
 	const dispatch = createEventDispatcher();

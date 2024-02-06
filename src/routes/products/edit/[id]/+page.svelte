@@ -42,7 +42,7 @@
 	{#if $status === FetchStatus.ERROR}
 		<Error status={$status} httpStatus={$httpStatus} message={$message} />
 	{:else}
-		<h2 class="text-2xl">Editando {id}</h2>
+		<h2 class="text-2xl">Edit product {id}</h2>
 		{#if $productGetter}
 			<ProductForm product={$productGetter} editing on:edit={onEdit} />
 		{/if}
