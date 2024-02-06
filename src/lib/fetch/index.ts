@@ -20,8 +20,8 @@ const validateResponse = <T>(schema: FetchSchema, response: FetchResponse<T>): F
     if (response.status === FetchStatus.SUCCESS) {
         if (Array.isArray(response.content)) {
             for (const [index, item] of response.content.entries()) {
-                const validacion = schema.safeParse(item);
-                if (!validacion.success) {
+                const validation = schema.safeParse(item);
+                if (!validation.success) {
                     response.status = FetchStatus.ERROR;
                     response.httpStatus = 'RESPONSE_ERROR';
                     response.message = `Invalid item in index ${index}`;
