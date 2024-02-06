@@ -46,7 +46,6 @@ const validateResponse = <T>(schema: FetchSchema, response: FetchResponse<T>): F
 const cleanJson = (body: any): string => {
 	delete body.createdAt;
 	delete body.updatedAt;
-	console.log(body);
 	return JSON.stringify(body);
 };
 
