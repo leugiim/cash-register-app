@@ -25,7 +25,7 @@
 			</tr>
 		</thead>
 		<tbody class="text-lg my-6">
-			{#if body.length == 0}
+			{#if body.length === 0}
 				<tr><td colspan={headers.length}>The data is empty</td></tr>
 			{/if}
 			{#each body as row}
@@ -34,17 +34,11 @@
 						<td class="p-4">{col}</td>
 					{/each}
 					<td class="text-right">
-						<a class="btn bg-secondary" href="{baseUrl}/edit"> Edit</a>
-						<a class="btn bg-alternative" href="{baseUrl}/delete"> Delete</a>
+						<a class="btn bg-secondary" href="{baseUrl}/edit/{row[0]}"> Edit</a>
+						<a class="btn bg-alternative" href="{baseUrl}/delete/{row[0]}"> Delete</a>
 					</td>
 				</tr>
 			{/each}
 		</tbody>
 	</table>
 </div>
-
-<style>
-	.btn {
-		@apply py-2 px-4 text-muted hover:brightness-125 rounded;
-	}
-</style>

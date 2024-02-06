@@ -24,7 +24,7 @@ export interface FetchResponse<T> {
 }
 
 export interface FetchParams<T> {
-	schema: FetchSchema;
+	schema: FetchSchema | null;
 	url: string;
 	method?: FetchMethod;
 	headers?: object;

@@ -1,11 +1,11 @@
 import { z } from 'zod';
 
 export interface Product {
-	id: string;
-	name: string;
-	price: number;
-	createdAt: string;
-	updatedAt: string;
+	id: string | null;
+	name: string | null;
+	price: number | null;
+	createdAt?: string | null;
+	updatedAt?: string | null;
 }
 
 export const productSchema = z.object({
