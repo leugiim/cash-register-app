@@ -43,6 +43,13 @@ const validateResponse = <T>(schema: FetchSchema, response: FetchResponse<T>): F
 	return response;
 };
 
+const cleanJson = (body: any): string => {
+	delete body.createdAt;
+	delete body.updatedAt;
+	console.log(body);
+	return JSON.stringify(body);
+};
+
 const fetchWithMethod = async <T, B>(
 	url: string,
 	method: FetchMethod,
@@ -55,7 +62,7 @@ const fetchWithMethod = async <T, B>(
 			'Content-Type': 'application/json',
 			...headers
 		},
-		body: JSON.stringify(body)
+		body: body ? cleanJson(body) : null
 	})
 		.then((r) => {
 			return r.json();

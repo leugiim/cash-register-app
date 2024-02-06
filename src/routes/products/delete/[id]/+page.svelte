@@ -6,13 +6,16 @@
 	import { useDeleteProduct } from '$lib/fetch/fetchProducts';
 	import { FetchStatus } from '$lib/types/Fetch';
 	import type { Product } from '$lib/types/Product';
+	import { onMount } from 'svelte';
 	const id: string = $page.url.pathname.split('/').pop() ?? '';
 
 	const { status, httpStatus, message, content: product } = getInitialFetchResult<Product>();
 
-	useDeleteProduct({ status, httpStatus, message, content: product }, id);
+	onMount(async () => {
+		useDeleteProduct({ status, httpStatus, message, content: product }, id);
+	});
 
-	$: if ($status == FetchStatus.SUCCESS) goto('/products');
+	$: if ($status === FetchStatus.SUCCESS) goto('/products');
 </script>
 
 <Error status={$status} httpStatus={$httpStatus} message={$message} />

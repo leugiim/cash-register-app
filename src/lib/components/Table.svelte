@@ -25,7 +25,7 @@
 			</tr>
 		</thead>
 		<tbody class="text-lg my-6">
-			{#if body.length == 0}
+			{#if body.length === 0}
 				<tr><td colspan={headers.length}>The data is empty</td></tr>
 			{/if}
 			{#each body as row}
@@ -42,9 +42,3 @@
 		</tbody>
 	</table>
 </div>
-
-<style>
-	.btn {
-		@apply py-2 px-4 text-muted hover:brightness-125 rounded;
-	}
-</style>
