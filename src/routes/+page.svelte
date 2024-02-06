@@ -3,10 +3,13 @@
 	import { getInitialFetchResult } from '$lib/fetch';
 	import { useProducts } from '$lib/fetch/fetchProducts';
 	import type { Product } from '$lib/types/Product';
+	import { onMount } from 'svelte';
 
 	const { status, httpStatus, message, content: products } = getInitialFetchResult<Product[]>();
 
-	useProducts({ status, httpStatus, message, content: products });
+	onMount(async () => {
+		useProducts({ status, httpStatus, message, content: products });
+	});
 </script>
 
 <main class="grid 2xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 w-full gap-6 px-8">
