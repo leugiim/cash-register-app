@@ -6,14 +6,16 @@ export enum DiscountStrategy {
 	PERCENT = 'Percent'
 }
 
+export const DiscountStrategies = Object.values(DiscountStrategy) as string[];
+
 export interface Discount {
-	id: number;
-	productId: string;
-	strategy: DiscountStrategy;
-	quantity: number;
-	discount: number;
-	createdAt: string;
-	updatedAt: string;
+	id: number | null;
+	productId: string | null;
+	strategy: DiscountStrategy | null;
+	quantity: number | null;
+	discount: number | null;
+	createdAt?: string | null;
+	updatedAt?: string | null;
 }
 
 export const discountSchema = z.object({
