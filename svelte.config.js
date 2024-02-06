@@ -23,7 +23,7 @@ const config = {
 		}),
 		paths: {
 			// config 'base' if the app is not hosted in the root path
-			// base: '/', 
+			// base: '/',
 		}
 	}
 };
