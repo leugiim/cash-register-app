@@ -1,38 +1,56 @@
-# create-svelte
+# Technical Challenge by Miguel Rodríguez
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This application is the frontend part for a cash register where the user can create products and discounts. Given a list of products, the app generates a ticket detailing the items bought and any applied discounts. It serves as a handy tool for managing sales transactions.
 
-## Creating a project
+## Related
 
-If you're seeing this, you've probably already done this step. Congrats!
+- The backend repository is: [https://github.com/leugiim/cash-register-api](https://github.com/leugiim/cash-register-api)
+
+## Requirements
+
+- Node version: 20.9.0
+- Svelte version: 4.2.7
+- Sveltekit version: 2.5.0
+
+## How to run the application
+
+**Install Dependencies:** Execute the following command to download all dependencies:
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+npm install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+**Start the Application:** Use the following command to start the application:
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## Description
 
-To create a production version of your app:
+**Products Registered**
+| Product Code | Name | Price |  
+|--|--|--|
+| GR1 | Green Tea | 3.11€ |
+| SR1 | Strawberries | 5.00 € |
+| CF1 | Coffee | 11.23 € |
 
-```bash
-npm run build
-```
+**Special conditions**
 
-You can preview the production build with `npm run preview`.
+- The CEO is a big fan of buy-one-get-one-free offers and green tea.
+  He wants us to add a rule to do this.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- The COO, though, likes low prices and wants people buying strawberries to get a price discount for bulk purchases.
+  If you buy 3 or more strawberries, the price should drop to 4.50€.
+
+- The VP of Engineering is a coffee addict.
+  If you buy 3 or more coffees, the price of all coffees should drop to 2/3 of the original price.
+
+Our check-out can scan items in any order, and because the CEO and COO change their minds often, it needs to be flexible regarding our pricing rules.
+
+**Test data**
+| Basket | Total price expected |  
+|--|--|
+| GR1,GR1 | 3.11€ |
+| SR1,SR1,GR1,SR1 | 13.61€ |
+| GR1,CF1,SR1,CF1,CF1 | 30.57€ |
