@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Error from '$lib/components/Error.svelte';
 	import TicketPreview from '$lib/components/TicketPreview.svelte';
 	import { getInitialFetchResult } from '$lib/fetch';
 	import { useCreateTicket, usePreviewTicket } from '$lib/fetch/fetchTickets';
@@ -58,7 +59,9 @@
 <main class="w-full flex justify-center items-center flex-col">
 	<h1 class="text-5xl mb-8">Cart</h1>
 
-	{#if total($cart) <= 0}
+	{#if $statusBuy === FetchStatus.ERROR}
+		<Error status={$statusBuy} httpStatus={$httpStatusBuy} message={$messageBuy} />
+	{:else if total($cart) <= 0}
 		<p class="text-2xl">The cart is empty</p>
 	{:else}
 		{#if $ticket}
